@@ -5,8 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start:dev": "tsc && node build/server.js",
+    "start": "tsc && node server.js",
 	"test": "jest --silent --forceExit",
-    "test:e2e": "jest --verbose --silent --config ./src/tests/e2e/jest-e2e.json --forceExit"
+    "test:e2e": "jest --verbose --silent --config ./src/tests/e2e/jest-e2e.json --forceExit",
+	"build":"tsc && cp package.json build && cd build && npm run start"
   },
   "author": "dsfernandes-cci",
   "repository": "https://github.com/dsfernandes-cci/skytale-challenge",

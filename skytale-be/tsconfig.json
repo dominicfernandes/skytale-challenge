@@ -11,5 +11,9 @@
     "skipLibCheck": true,
 	"strictPropertyInitialization": false,
 	"experimentalDecorators": true
-  }
+  },
+  "exclude":[
+	"./src/tests/*",
+	"./src/*/__mocks__/*",
+]
 }
