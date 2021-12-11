@@ -15,13 +15,13 @@ import { WalletService } from '../services';
 export async function validateUserToken(req: CustomRequest, res: Response, next: NextFunction) {
 	const walletService = new WalletService();
 	try {
-		const userToken = req.headers.authorization;
+		const userToken = req.headers.usertoken;
 
 		if (!userToken) {
 			return res.status(HttpStatus.UNAUTHORIZED).send(HttpErrorResponses.unauthorizedError());
 		}
 
-		const wallet = await walletService.getWalletByUserToken(userToken);
+		const wallet = await walletService.getWalletByUserToken(userToken as string);
 
 		req.wallet = wallet;
 

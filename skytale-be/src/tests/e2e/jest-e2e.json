@@ -1,0 +1,15 @@
+{
+	"moduleFileExtensions": [
+		"js",
+		"json",
+		"ts"
+	],
+	"testEnvironment": "node",
+	"testRegex": "app.test.ts$",
+	"transform": {
+		"^.+\\.(t|j)s$": "ts-jest"
+	},
+	"setupFiles": [
+		"./env.js"
+	]
+}
