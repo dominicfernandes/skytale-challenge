@@ -7,6 +7,7 @@ import { IBalance, ITransaction } from '../common/skytale-response.interface';
 import { SkytaleService, WalletService } from '../services';
 import { SaveWalletResponse } from '../common/save-wallet-response.dto';
 import { CustomRequest } from '../common/custom-request';
+import { ITransactionResponseDto } from '../common/transactions-response.dto';
 
 export class WalletController {
 	constructor(
@@ -64,11 +65,15 @@ export class WalletController {
 	 * @param res 
 	 * @returns {Promise<Response<ITransaction[]|IErrorResponse>>}
 	 */
-	public async getTransactions(req: CustomRequest, res: Response): Promise<Response<ITransaction[]|IErrorResponse>> {
+	public async getTransactions(req: CustomRequest, res: Response): Promise<Response<ITransactionResponseDto|IErrorResponse>> {
 		const pageSize = 10; // 10 transactions per request
 		const { type, page } = req.query; // filters
-		let transactions: ITransaction[] = [];
 		const requestId = req.requestId;
+		let hasNext=false;
+
+		let transactions: ITransaction[] = [];
+		let filteredTransactions:ITransaction[]=[];
+		let response:ITransactionResponseDto;
 
 		try {
 			const userWallet = req.wallet;	// wallet attached in validate user token middleware
@@ -89,15 +94,24 @@ export class WalletController {
 
 			// paginate transactions
 			if (page) {
-				const offset = parseInt(page.toString()) * pageSize;
-				transactions = transactions.slice(offset, offset + 10);
+				const offset = parseInt(page as string) * pageSize;
+				filteredTransactions = transactions.slice(offset, offset + pageSize);
 			} else {
-				transactions = transactions.slice(0, 10);
+				filteredTransactions = transactions.slice(0, 10);
 			}
 			
+			hasNext = transactions.length > (parseInt(page?page as string : '0') * pageSize) + pageSize;
+
 			console.log(`request completed -- ${requestId}`);
 
-			return res.status(HttpStatus.SUCCESS).send(transactions);
+			response = {
+				transactions:filteredTransactions,
+				page:parseInt(page?page as string : '0'),
+				size:pageSize,
+				hasNext	
+			};
+
+			return res.status(HttpStatus.SUCCESS).send(response);
 		} catch (error) {
 			this.logError(error as Error,requestId || '');
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send(HttpErrorResponses.internalServerError());

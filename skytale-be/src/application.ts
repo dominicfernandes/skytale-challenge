@@ -2,7 +2,7 @@ import express, { Request, Response, Application } from 'express';
 import { routes } from './routes';
 import { HttpStatus } from './common/http-status.enum';
 import { connectToDB } from './db.connection';
-import { requestidMiddleware } from './middlewares/requestid.miidelware';
+import { requestidMiddleware } from './middlewares/requestid.middleware';
 
 export class App {
 	private static app = express();
