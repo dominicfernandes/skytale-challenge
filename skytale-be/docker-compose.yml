@@ -1,0 +1,26 @@
+version: '3'
+services:
+    skytale_api:
+        container_name: skytale_api
+        build: .
+        command: npm run start:dev
+        ports:
+            - '3000:3000'
+        environment:
+            MONGODB_URL: mongodb://mongodb:27017/skytale_db
+            PORT: 3000
+            SKYTALE_BASEURL: https://api-dev.skytale.finance
+
+        depends_on:
+            - mongodb
+
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        ports:
+            - '27017:27017'
+        volumes:
+            - data-volume:/data/db
+
+volumes:
+    data-volume:
