@@ -3,6 +3,7 @@ import { routes } from './routes';
 import { HttpStatus } from './common/http-status.enum';
 import { connectToDB } from './db.connection';
 import { requestidMiddleware } from './middlewares/requestid.middleware';
+import cors from 'cors';
 
 export class App {
 	private static app = express();
@@ -10,6 +11,7 @@ export class App {
 		// connect to db
 		await connectToDB();
 
+		this.app.use(cors());
 		this.app.use(express.json());
 
 		// add requestId to request context
