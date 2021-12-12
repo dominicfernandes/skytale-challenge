@@ -2,7 +2,7 @@
 
 ## Hosted Service
 
-(http://3.66.28.187:3000)
+http://3.66.28.187:3000
 
 ## Documentation
 
