@@ -60,7 +60,7 @@ const Transactions = ()=>{
 			</div>
 			
 			{transactionData && transactions && transactions.map(({hash,from,to,value,type})=><Transaction key={Math.random()} hash={hash} from={from} to={to} value={value} type={type} />)}
-
+			{!isLoading && transactions.length===0 && <p className="no-transactions">No transactions found</p>}
 			<div className="loader">
 				<CircleLoader color="#283479" loading={isLoading} size={50} />
 			</div>

@@ -6,7 +6,7 @@ const SaveWallet = ()=>{
 	const navigate = useNavigate(); 
 
 	const saveWallet=(chain,address)=>{
-		axios.post('http://localhost:3000/wallet',{chain,address})
+		axios.post(`${process.env.REACT_APP_API_BASEURL}/wallet`,{chain,address})
 		.then(response=>{
 			console.log(response);
 			localStorage.setItem('skyWallet_userToken',response.data.userToken);
