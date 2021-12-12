@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { Footer, Header, SaveWallet, WalletDetails } from './containers';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="skywallet">
+			<div className="skywallet__bg-overlay"></div>
+			<BrowserRouter>
+				<div className="skywallet__wrapper">
+					<Header />
+					<div className="skywallet__wrapper-content">
+						<Routes>
+							<Route path='/' element={<SaveWallet />} />
+							<Route path='/wallet' element={<WalletDetails />} />
+						</Routes>
+					</div>
+					<div className="footer">
+						<Footer />
+					</div>
+				</div>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

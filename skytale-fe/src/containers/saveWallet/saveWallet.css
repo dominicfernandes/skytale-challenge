@@ -1,0 +1,10 @@
+.save-wallet__form-container {
+	height: 100%;
+	width: 60%;
+}
+
+.save-wallet {
+	display: flex;
+	justify-content: center;
+	margin-top: 15%;
+}

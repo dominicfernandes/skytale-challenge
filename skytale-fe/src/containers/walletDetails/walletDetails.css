@@ -1,0 +1,20 @@
+.wallet-details {
+	height: 100%;
+	padding: 20px;
+}
+
+.wallet-details__transactions {
+	width: 60%;
+	height: 100%;
+	border-right: 2px solid silver;
+}
+
+.wallet-details__balances {
+	width: 40%;
+	height: 100%;
+}
+
+.wallet-details__wrapper {
+	display: flex;
+	height: 100%;
+}

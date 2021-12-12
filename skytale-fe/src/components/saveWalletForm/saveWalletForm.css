@@ -1,0 +1,12 @@
+.form-group {
+	width: 40%;
+}
+
+.form-group > * {
+	display: block;
+}
+
+.save-wallet-form__wrapper {
+	display: flex;
+	justify-content: space-around;
+}
