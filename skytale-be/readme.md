@@ -2,11 +2,11 @@
 
 ## Hosted Service
 
-(`http://3.66.28.187:3000`)
+(http://3.66.28.187:3000)
 
 ## Documentation
 
-(`https://documenter.getpostman.com/view/5214074/UVR5q8ur`)
+[Link to Documentation](https://documenter.getpostman.com/view/5214074/UVR5q8ur)
 
 ## Techstack used
 
