@@ -13,9 +13,11 @@ http://3.66.28.187:3000
 -   Nodejs with Typescript
 -   Express
 -   MongoDB
+-   Docker
 
 ## Scripts
 
+-   `docker-compose up` build service on a docker container
 -   `npm run start:dev` starts server with a dev build
 -   `npm run start` starts server for prod build
 -   `npm build` creates a prod build
