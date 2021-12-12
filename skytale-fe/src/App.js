@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 	return (
-		<div className="skywallet">
+		<div className="skywallet" data-testid="app">
 			<div className="skywallet__bg-overlay"></div>
 			<BrowserRouter>
 				<div className="skywallet__wrapper">

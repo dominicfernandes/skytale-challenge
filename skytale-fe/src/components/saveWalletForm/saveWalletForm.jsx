@@ -40,7 +40,7 @@ const SaveWalletForm = ({ saveWallet }) => {
 	};
 
 	return (
-		<form className="save-wallet-form">
+		<form className="save-wallet-form" data-testid="save-wallet-form">
 			<div className="save-wallet-form__wrapper">
 				<div className="form-group">
 					<label>Chain:</label>

@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import './header.css';
-import { useLocation } from 'react-router-dom'
 
 const Header = ()=>{
 	const location = useLocation();
@@ -12,11 +11,11 @@ const Header = ()=>{
 	}
 	
 	return(
-		<div>
-		<header>
-			<h1 className="brand">SkyWallet</h1>
-			{location.pathname==='/wallet' && <button id="back-btn" onClick={handleBackClick}>change</button>}
-		</header>
+		<div data-testid="header">
+			<header>
+				<h1 className="brand">SkyWallet</h1>
+				{location.pathname==='/wallet' && <button id="back-btn" onClick={handleBackClick}>change</button>}
+			</header>
 		</div>	
 	);
 }

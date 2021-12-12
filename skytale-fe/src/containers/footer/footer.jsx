@@ -9,7 +9,7 @@ const Footer = ()=>{
 	},[]);
 
 	return(
-		<footer>SkyWallet&trade; {year}</footer>
+		<footer data-testid="footer">SkyWallet&trade; {year}</footer>
 	);
 }
 

@@ -53,7 +53,7 @@ const Transactions = ()=>{
 		}
 	}
 	return(
-		<div className="transactions" onScroll={handleScroll}>
+		<div className="transactions" onScroll={handleScroll} data-testid="transactions-container">
 			<h3 className="transactions__title">Transactions</h3>
 			<div>
 				<FilterPanel setFilterType={setFilterType}/>

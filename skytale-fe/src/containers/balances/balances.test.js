@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import App from './App';
+import { Balances } from "..";
 
-describe('App Component', () => {
+describe('Balances Component', () => {
 
 	it('should render component', () => {
-		render(<App />);
+		render(<Balances />);
 
-		const component = screen.getByTestId('app');
+		const component = screen.getByTestId('balances');
 		expect(component).toBeInTheDocument();
 	});
 });

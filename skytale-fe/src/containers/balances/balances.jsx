@@ -9,7 +9,7 @@ const Balances = ()=>{
 	const [balances,isLoading] = useFetchBalance(userToken);
 
 	return(
-		<div className="balances">
+		<div className="balances" data-testid="balances">
 			<h3 className="balances__title">Balances</h3>
 			{
 				balances.map((balance)=>{

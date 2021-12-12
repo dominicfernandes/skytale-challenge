@@ -15,7 +15,7 @@ const SaveWallet = ()=>{
 		.catch(error=>console.log(error))
 	}
 	return(
-		<div className="save-wallet">
+		<div className="save-wallet" data-testid="save-wallet-container">
 			<div className="save-wallet__form-container">
 				<SaveWalletForm saveWallet={saveWallet}/>
 			</div>

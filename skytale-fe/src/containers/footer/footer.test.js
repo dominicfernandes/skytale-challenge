@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import App from './App';
+import { Footer } from "..";
 
-describe('App Component', () => {
+describe('Footer Component', () => {
 
 	it('should render component', () => {
-		render(<App />);
+		render(<Footer />);
 
-		const component = screen.getByTestId('app');
+		const component = screen.getByTestId('footer');
 		expect(component).toBeInTheDocument();
 	});
 });

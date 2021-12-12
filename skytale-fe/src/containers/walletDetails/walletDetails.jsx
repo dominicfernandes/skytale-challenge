@@ -3,7 +3,7 @@ import {Balances, Transactions} from '../';
 
 const WalletDetails = ()=>{
 	return(
-		<div className="wallet-details">
+		<div className="wallet-details" data-testid="wallet-details">
 			<div className="wallet-details__wrapper">
 				<div className="wallet-details__transactions">
 					<Transactions/>

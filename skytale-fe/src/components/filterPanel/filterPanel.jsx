@@ -23,10 +23,10 @@ const FilterPanel = ({ setFilterType }) => {
 	];
 
 	return (
-		<div className="filter-panel">
+		<div data-testid='filter-panel' className="filter-panel">
 			<div className="type-filter">
 				<label>Type:</label>
-				<select className="filter-panel__type" onChange={handleChange}>
+				<select className="filter-panel__type"  onChange={handleChange}>
 					<option value="">All</option>
 					{typesList.map(type=><option key={type} value={type}>{type}</option>)}
 				</select>
