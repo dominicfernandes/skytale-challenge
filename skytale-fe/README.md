@@ -19,4 +19,3 @@ http://skytale-challenge.s3-website.ap-south-1.amazonaws.com
 =======
 - `npm run start` - starts app on locally
 - `npm run build` - build the app into static files
->>>>>>> 11877ee855969bedb85ab6825e2dba9781d4eb8a
