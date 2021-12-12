@@ -1,4 +1,10 @@
 .transactions {
-	height: 100%;
+	height: 98%;
 	overflow: auto;
+}
+
+.transactions__title {
+	color: #283479;
+	border-bottom: 1px solid silver;
+	width: 99%;
 }

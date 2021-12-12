@@ -2,8 +2,16 @@ header {
 	background: rgba(255, 255, 255, 0.5);
 	height: 50px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	padding: 0px 20px;
-	color: rgb(40, 52, 121);
+	color: #283479;
+}
+
+#back-btn {
+	background: none;
+	border: none;
+	color: red;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
 }

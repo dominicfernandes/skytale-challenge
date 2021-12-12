@@ -1,0 +1,9 @@
+.filter-panel {
+	height: 40px;
+	margin-top: 5px;
+}
+
+.filter-panel__type {
+	width: 20%;
+	margin-left: 10px;
+}

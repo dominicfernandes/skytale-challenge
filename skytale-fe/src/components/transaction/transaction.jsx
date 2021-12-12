@@ -2,12 +2,12 @@ import './transaction.css';
 
 const Transaction = ({hash,from,to,value,type})=>{
 	return(
-		<div>
-			<p>{hash}</p>
-			<p>{from}</p>
-			<p>{to}</p>
-			<p>{value}</p>
-			<p>{type}</p>
+		<div className="transaction">
+			<p>Hash: {hash}</p>
+			<p>From: {from}</p>
+			<p>To: {to}</p>
+			<p>Value: {value}</p>
+			<p>Type: {type}</p>
 		</div>
 	);
 }

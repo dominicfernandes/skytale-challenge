@@ -1,145 +1,70 @@
-import { useEffect, useState } from 'react';
-import {Transaction} from '../../components';
+import {FilterPanel, Transaction} from '../../components';
+import axios from 'axios';
+import { useUserToken } from '../../hooks/useUserToken';
 import './transactions.css';
+import { useEffect, useState } from 'react';
+import CircleLoader from "react-spinners/ClipLoader";
 
 const Transactions = ()=>{
-	const [transactions, setTransactions] = useState([]);
+	const [page,setPage]=useState(0);
+	const [type,setType]=useState(null);
+	const [hasNext,setHasNext]=useState(false);
+	const [isLoading,setIsLoading]=useState(false);
+	const [transactionData,setTransactionData] =useState(); 
+	const [transactions,setTransactions] =useState([]); 
+	const userToken = useUserToken();
 
 	useEffect(()=>{
-		setTransactions([
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-	
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'recieve',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'recieve',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'recieve',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-			{
-				hash: '0x45002133ba2fa7f2f263b466dd687f6fc9feef3a1ac8aacd28b3ecbac6be84fe',
-				from: '0x29d5527caa78f1946a409fa6acaf14a0a4a0274b',
-				to: '0x266e110faba6fd1c4d50a1e9bf94e9af3fd02e41',
-				value: '0.35167462ETH',
-				type: 'send',
-			},
-		]);
-	},[]);
+		if(!transactionData) fetchTransactionData(page,type)
+	});
 
+	const setFilterType=(filterType)=>{
+		setType(type);
+		setPage(0);
+		fetchTransactionData(0,filterType,true);
+	}
+
+	const fetchTransactionData=(page,type,fromFilter=false)=>{
+		let url = `${process.env.REACT_APP_API_BASEURL}/transactions?page=${page}`;
+
+		if (type) url = `${url}&type=${type}`;
+
+		setIsLoading(true);
+		axios.get(url, {
+			headers: { userToken }
+		})
+			.then(response => {
+				console.log(response)
+				setTransactionData(response.data);
+				if(fromFilter) setTransactions(response.data.transactions);
+				else setTransactions([...transactions,...response.data.transactions]);
+				setHasNext(response.data.hasNext);
+			})
+			.catch(error =>{
+				console.log(error)
+			})
+			.finally(_ => setIsLoading(false));
+	}
+
+	const handleScroll =(e)=>{
+		if(e.target.scrollTop+e.target.clientHeight+50 >= e.target.scrollHeight && hasNext){
+			fetchTransactionData(page+1,type);
+			setPage(page+1);
+		}
+	}
 	return(
-		<div className="transactions">
-			{transactions.map(({hash,from,to,value,type})=><Transaction hash={hash} from={from} to={to} value={value} type={type} />)}
+		<div className="transactions" onScroll={handleScroll}>
+			<h3 className="transactions__title">Transactions</h3>
+			<div>
+				<FilterPanel setFilterType={setFilterType}/>
+			</div>
+			
+			{transactionData && transactions && transactions.map(({hash,from,to,value,type})=><Transaction key={Math.random()} hash={hash} from={from} to={to} value={value} type={type} />)}
+
+			<div className="loader">
+				<CircleLoader color="#283479" loading={isLoading} size={50} />
+			</div>
+			
 		</div>
 	);
 }
