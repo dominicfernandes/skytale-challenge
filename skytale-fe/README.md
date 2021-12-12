@@ -10,9 +10,9 @@ http://skytale-challenge.s3-website.ap-south-1.amazonaws.com
 
 ## Wallet Page
 
-![3](https://user-images.githubusercontent.com/49357594/145720256-9f912156-ec41-47d7-9903-11e7233d40f3.PNG)
+![Capture](https://user-images.githubusercontent.com/49357594/145721856-3c5ce14e-3bd1-4e2e-91e0-6b35ea3f9656.PNG)
 
 ## Scripts
 
--   `npm run start` - starts app on locally
--   `npm run build` - build the app into static files
+-   `npm run start` starts app on locally
+-   `npm run build` build the app into static files
