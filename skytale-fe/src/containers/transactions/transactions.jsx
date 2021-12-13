@@ -4,6 +4,8 @@ import { useUserToken } from '../../hooks/useUserToken';
 import './transactions.css';
 import { useEffect, useState } from 'react';
 import CircleLoader from "react-spinners/ClipLoader";
+import { useNavigate } from 'react-router-dom';
+
 
 const Transactions = ()=>{
 	const [page,setPage]=useState(0);
@@ -13,6 +15,7 @@ const Transactions = ()=>{
 	const [transactionData,setTransactionData] =useState(); 
 	const [transactions,setTransactions] =useState([]); 
 	const userToken = useUserToken();
+	const navigate = useNavigate();
 
 	useEffect(()=>{
 		if(!transactionData) fetchTransactionData(page,type)
@@ -42,6 +45,8 @@ const Transactions = ()=>{
 			})
 			.catch(error =>{
 				console.log(error)
+				const status = error.response.status
+				if (status === 401) navigate('/');
 			})
 			.finally(_ => setIsLoading(false));
 	}

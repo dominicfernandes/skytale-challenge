@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { Transactions } from "..";
 
+jest.mock("react-router-dom", () => ({
+	useNavigate: (path) => jest.fn(path)
+}));
+
 describe('Transactions Component', () => {
 	it('should render component', () => {
 		render(<Transactions />);
