@@ -5,7 +5,7 @@ const Footer = ()=>{
 	const [year,setYear] = useState();
 
 	useEffect(()=>{
-		setYear(2021);
+		setYear(new Date().getFullYear());
 	},[]);
 
 	return(

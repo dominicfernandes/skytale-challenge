@@ -16,4 +16,10 @@ describe('Header Component', () => {
 		const component = screen.getByTestId('header');
 		expect(component).toBeInTheDocument();
 	});
+
+	it('should have skyWallet in header', () => {
+		const { getByText } = render(<Header />);
+		const header = getByText("SkyWallet");
+		expect(header).toBeTruthy();
+	});
 });

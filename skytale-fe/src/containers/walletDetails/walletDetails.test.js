@@ -9,4 +9,16 @@ describe('WalletDetails Component', () => {
 		const component = screen.getByTestId('wallet-details');
 		expect(component).toBeInTheDocument();
 	});
+
+	it('should have transactions component', () => {
+		const { getByTestId } = render(<WalletDetails />);
+		const transactionsComponent = getByTestId('transactions-container');
+		expect(transactionsComponent).toBeInTheDocument();
+	});
+
+	it('should have balances component', () => {
+		const { getByTestId } = render(<WalletDetails />);
+		const balancesComponent = getByTestId('balances');
+		expect(balancesComponent).toBeInTheDocument();
+	});
 });

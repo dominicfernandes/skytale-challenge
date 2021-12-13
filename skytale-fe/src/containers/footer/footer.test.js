@@ -9,4 +9,10 @@ describe('Footer Component', () => {
 		const component = screen.getByTestId('footer');
 		expect(component).toBeInTheDocument();
 	});
+
+	it('should have footer text', () => {
+		const { getByText } = render(<Footer />);
+		const element = getByText(/SkyWallet/);
+		expect(element).toBeInTheDocument();
+	});
 });
