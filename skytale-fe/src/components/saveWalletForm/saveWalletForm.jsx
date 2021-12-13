@@ -44,7 +44,7 @@ const SaveWalletForm = ({ saveWallet }) => {
 			<div className="save-wallet-form__wrapper">
 				<div className="form-group">
 					<label>Chain:</label>
-					<select onChange={handleChange} id="chain">
+					<select onChange={handleChange} id="chain" data-testid="chain-select">
 						<option value="">Chain</option>
 						{chainsList.map(c=><option key={c} value={c}>{c}</option>)}
 					</select>
@@ -54,6 +54,7 @@ const SaveWalletForm = ({ saveWallet }) => {
 				<div className="form-group">
 					<label>Address:</label>
 					<input
+						data-testid="input-address"
 						type="text"
 						placeholder="0x29d7d1dd5b6f9c864d9db560d72a247c178ae86b"
 						id="address"
@@ -62,7 +63,7 @@ const SaveWalletForm = ({ saveWallet }) => {
 					{AddressErrorMessage && <small className="error">{AddressErrorMessage}</small>}
 				</div>
 				<div className="form-actions">
-					<button id="submit-btn" onClick={handleSubmit}>
+					<button id="submit-btn" onClick={handleSubmit} data-testid="submit-btn">
 						<FaArrowRight />
 					</button>
 				</div>
